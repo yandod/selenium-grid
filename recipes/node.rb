@@ -1,4 +1,4 @@
-include_recipe 'install'
+include_recipe 'selenium-grid::install'
 
 # if node:
 #	start jar with "-role node  -hub '<accessible IP of hub>'"
