@@ -15,7 +15,7 @@ include_recipe 'selenium-grid::install'
 # ensure that java is installed
 
 service "selenium-grid" do
-  start_command "/usr/bin/Xvfb :1 -screen 0 1024x768x8 > /var/log/xvfb.log 2> /var/log/xvfb.error && export DISPLAY=:1.0 && java -jar #{Chef::Config[:file_cache_path]}/selenium-server-standalone-2.39.0.jar > /var/log/selenium.log 2> /var/log/selenium.error"
+  start_command "/usr/bin/Xvfb :1 -screen 0 1024x768x8 > /tmp/xvfb.log 2> /tmp/xvfb.error && export DISPLAY=:1.0 && java -jar #{Chef::Config[:file_cache_path]}/selenium-server-standalone-2.39.0.jar > /tmp/selenium.log 2> /tmp/selenium.error"
   stop_command "pkill -f 'java -jar' && pkill -f 'Xvfb'"
   action :start
 end
