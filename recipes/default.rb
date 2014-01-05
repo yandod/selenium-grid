@@ -15,8 +15,9 @@ include_recipe 'selenium-grid::install'
 # ensure that java is installed
 
 service "xvfb" do
-	start_command "/usr/bin/Xvfb :1 -screen 0 1024x768x8 > /tmp/xvfb.log 2> /tmp/xvfb.error"
+	start_command "/usr/bin/Xvfb :1 -screen 0 1024x768x8 > /tmp/xvfb.log 2> /tmp/xvfb.error &"
 	stop_command "pkill -f 'Xvfb'"
+	action :start
 end
 
 service "selenium-grid" do
